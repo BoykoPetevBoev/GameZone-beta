@@ -22,7 +22,7 @@ const notifications = {
 };
 
 (() => {
-    const app = Sammy('#body', function () {
+    const app = $.sammy('#body', function () {
         this.use('Handlebars', 'hbs');
 
         this.get('index.html', function (ctx) {
