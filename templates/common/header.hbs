@@ -1,16 +1,25 @@
-<nav class="navbar navbar-light bg-light static-top">
-    <div class="container">
-        <a class="navbar-brand" href="/home">SoftBay</a>
-        {{#if loggedIn}}
-        <a class="navbar-item" href="/dashboard">Dashboard</a>
-        <a class="navbar-item" href="/createOffer">Create Offer</a>
-        <a class="navbar-item" href="/profile">Profile</a>
-        <a class="navbar-item" href="/logout">Logout</a>
-        {{else}}
-        <div>
-            <a class="btn btn-warning" href="/login">Login</a>
-            <a class="btn btn-warning" href="/register">Register</a>
+<nav class="header centerElement">
+    <div class="headerContainer centerElement">
+
+        <div class="headerLeft">
+            <a class="btnHeaderStyleOne" href="#/home">Home</a>
         </div>
-        {{/if}}
+
+        <div class="headerCenter">
+            {{!-- <div class="searchElements">
+                <input type="text" placeholder="Търсене...">
+                <button>〉</button> --}}
+        </div>
+
+        <div class="headerRight">
+            {{#if rev}}
+            <a class="btnHeaderStyleOne" href="#/profile">{{username}}</a>
+            <a class="btnHeaderStyleOne" href="#/logout">Logout</a>
+            {{else}}
+            <a class="btnHeaderStyleOne" href="#/login">Login</a>
+            <a class="btnHeaderStyleOne" href="#/register">Register</a>
+            {{/if}}
+        </div>
+
     </div>
 </nav>
