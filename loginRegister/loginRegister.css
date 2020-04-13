@@ -1,0 +1,106 @@
+
+/* Login / Register  -------------------------------------------------------------- */
+
+@keyframes fadeInDown {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -20%, 0);
+      transform: translate3d(0, -20%, 0);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .form {
+    text-align: center;
+    background-color: var(--secondary-color);
+    padding: 40px;
+    width: 70%;
+    max-width:600px;
+    margin:40px auto;
+    border-radius: 4px;
+    box-shadow:0 4px 10px 4px var(--secondary-color);
+    animation: fadeInDown;
+    animation-duration: .5s;
+  }
+  .tab-group {
+    list-style:none;
+    padding:0;
+    margin: 0 0 40px 0;
+  }
+  .field-wrap {
+    height: 80px;
+  }
+   li a {
+      display:block;
+      text-decoration:none;
+      padding:15px;
+      background: var(--secondary-color);
+      color: var(--special-color);
+      font-size:20px;
+      float:left;
+      width:50%;
+      text-align:center;
+      cursor:pointer;
+      transition:.5s ease;
+    }
+    .active a {
+      background-color: var(--special-color);
+      color: var(--secondary-color);
+    }
+    .form a:hover, .form button:hover{
+      border: none;
+      box-shadow:  0 0 15px 2px var(--special-color);
+      background-color: var(--secondary-color);
+      color: var(--special-color);
+    }
+    .form a:active, .form button:active {
+      outline: none;
+      background-color: var(--secondary-color);
+      color: var(--secondary-color);
+      box-shadow: none;
+    }
+    .form h1 {
+      text-align:center;
+      color: var(--primary-color);
+      font-weight: 300;
+      margin: 0 0 40px;
+    }
+    #login, #signup{
+      padding-top: 90px;
+    }
+    
+    .field-wrap input {
+      background-color: var(--secondary-color);
+      border: solid 1px var(--primary-color);
+      color: var(--primary-color);
+      padding:5px 10px;
+      width: 100%;
+      transition:.5s ease;
+    }
+    .field-wrap input:focus {
+      border: solid 1px var(--special-color);
+      outline: none;
+      box-shadow:  0 0 10px 2px var(--special-color);
+    }
+    .form button {
+      border: none;
+      height: 50px;
+      width: 100%;
+      background-color: var(--special-color);
+      color: var(--secondary-color);
+      font-size:20px;
+      transition:.5s ease;
+    }
+    .errorBox {
+      border: none;
+      box-shadow: 0px 0px 10px 5px var(--special-color-red);
+      color: var(--special-color-red);
+    }
+    .errorBox:hover {
+      box-shadow: 0px 0px 10px 5px var(--special-color-red);
+      border: solid 1px var(--special-color-red);
+    }
