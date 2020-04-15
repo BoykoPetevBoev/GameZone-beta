@@ -1,0 +1,35 @@
+#dbInfo {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: var(--primary-color);
+    margin-top: 40px;
+  }
+  
+  #dbInfo td, #dbInfo th {
+    border: 1px solid var(--secondary-color);
+    padding: 8px;
+  }
+  
+  #dbInfo tr:nth-child(even){
+      color: var( --special-color);
+      background-color: var(--secondary-color);
+    }
+  #dbInfo tr:nth-child(odd){
+      color: var(--secondary-color);
+      background-color: var( --special-color);
+    }
+    
+    #dbInfo tr:hover { 
+        background-color: var(--special-color-red);
+        color: var(--primary-color);
+        text-shadow: 0 1px 10px black;
+}
+  
+  #dbInfo th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--special-color-green);
+    color: white;
+  }
