@@ -1,0 +1,50 @@
+<div class="userInfoBack">
+    <div class="userInfo centerElement">
+        {{#if admin}}
+        <div id="userInfo">
+            <a class="btn" href="#/addProduct">Add new product</a>
+            <a class="btn" href="#/database">Database</a>
+        </div>
+        <div>
+
+        </div>
+        <div>
+            <p>Favorites</p>
+            <div class="userInfoItems">
+
+            </div>
+        </div>
+        <div>
+            <p>Activity</p>
+            <div class="userInfoItems">
+
+            </div>
+        </div>
+        {{else}}
+        <div id="userInfo">
+            <div class="left">
+                <p>Name:</p>
+                <p>Email:</p>
+                <p>Phone:</p>
+                <p>Address:</p>
+            </div>
+            <div class="left">
+                <p>{{firstName}} {{lastName}}</p>
+                <p>{{email}}</p>
+                <p>{{phone}}</p>
+                <p>{{address}}</p>
+            </div>
+        </div>
+        <div></div>
+        <div>
+            <p>Favorites</p>
+            <div class="userInfoItems"></div>
+        </div>
+        <div>
+            <p>My Shopping Cart</p>
+            <div class="userInfoItems"></div>
+        </div>
+        {{/if}}
+
+    </div>
+</div>
