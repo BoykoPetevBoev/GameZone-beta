@@ -1,0 +1,37 @@
+{{> header}}
+
+{{#if email}}
+{{> userInfo}}
+{{/if}}
+
+{{> menu}}
+<div id="homePage" class="homePage center">
+
+    {{#each data}}
+    <div class="product left">
+
+        <div class="imageProduct">
+            <img src={{doc.image}} alt="">
+        </div>
+
+        <div class="titleProduct">
+            <p>{{doc.category}} - {{doc.brand}} {{doc.model}}</p>
+        </div>
+        <div class="priceProduct">
+            <h3>${{doc.price}}.00</h3>
+        </div>
+
+        <div class="btnProduct">
+            {{#if ../admin}}
+            <a class="btn left btnBuy" href="#/home/{{id}}">CHANGE</a>
+            {{else}}
+            <a class="btn left btnBuy" href="">BUY</a>
+            {{/if}}
+            <a class="btn left btnSave" href="">INFO</a>
+        </div>
+
+    </div>
+    {{/each}}
+
+</div>
+{{!-- {{> footer}} --}}
