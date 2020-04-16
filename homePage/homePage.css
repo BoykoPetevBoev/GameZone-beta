@@ -1,0 +1,121 @@
+.menuDiv {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    background-color: black;
+    /* animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
+  }
+  .menuDiv:hover {
+    height: 62px;
+    margin-top: -2px;
+    border-top: solid 2px var(--special-color-red);
+  }
+  .menuList{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+  .menuList ul {
+    margin-block-start: 0em;
+    padding-inline-start: 0px;
+    height: 100%;
+    margin-bottom: 0px;
+  }
+  .menuList ul li {
+    list-style: none;
+    width: 20%;
+    float: left ;
+    height: 100%;
+  }
+  .menuList ul li a {
+    float: left;
+      width: 100%;
+      height: 100%;
+      line-height: 40px;
+      padding: 7px 10px 0px 10px;
+      font-size: 15px;
+      color: #fff;
+      text-transform: uppercase;
+      color: var(--primary-color);
+      text-align: center;
+      background-color: black;
+  }
+  .menuList ul li a:hover {
+    text-decoration: none;
+    border-bottom: solid 6px var(--special-color-red);
+    color: var(--special-color-red);
+    /* border: solid 2px var(--special-color-green) ; */
+    /* color: var(--special-color-green); */
+    /* box-shadow: inset 0 0 10px 1px var(--special-color-green); */
+  }
+
+  .homePage {
+    width: 70%;
+    margin-top: 0px;
+    background-color: var(--secondary-color);
+    border: solid 2px var(--special-color);
+    color: var(--primary-color);
+  }
+  /* .homePage div {
+    border: solid 1px black
+  } */
+  .product {
+    border: solid 1px var(--special-color);
+    background-color:  var(--secondary-color);
+    /* box-shadow: 0 0 10px 1px rgb(112, 112, 112); */
+    color: white;
+    background-color:  white;
+    color: black;
+    width: 23%;
+    margin: 1%;
+    text-align: center;
+  }
+  .product:hover{
+    box-shadow: 0 0 15px 1px var(--secondary-color);
+
+  }
+  .imageProduct {
+    margin-top: 20px;
+  }
+  .imageProduct img{
+    max-width: 100%;
+    /* width: 100%; */
+    height: 200px;
+  }
+  .titleProduct {
+    padding-top: 20px;
+    height: 100px;
+    font-size: 20px;
+  }
+  .priceProduct {
+    color: var(--special-color-red);
+  }
+  .btnProduct {
+    width: 100%;
+  }
+  .btnBuy, .btnSave {
+    border-radius: 0px;
+    border: none;
+    width: 50%;
+    color: var(--special-color);
+  }
+  .btnBuy {
+    background-color: var(--special-color);
+    color: var(--secondary-color);
+  }
+  .btnBuy:hover, .btnSave:hover {
+    background-color: var(--special-color-red);
+    color: var(--secondary-color);
+    box-shadow: inset 0 0 10px var(--secondary-color);
+    text-shadow: none;
+  }
+
+
+
+
+
