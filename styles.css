@@ -1,0 +1,128 @@
+
+:root { 
+  --primary-color: #ced8e1;
+  --secondary-color: #102b3e;
+  /* --special-color:  #3ac6ea; */
+  --special-color:  #3ac6ea;
+  --special-color-red: #e83d61;
+  --special-color-green: #59c562;
+  --special-color-purpure: #6964e2;
+} 
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pageWidth {
+  width: 70%;
+}
+.btn {
+  color: var(--special-color-green);
+  background-color: var(--secondary-color);
+  border: solid 1px var(--primary-color);
+}
+.btn:hover {
+  color: var(--special-color-green);
+  text-shadow: 0 0 5px var(--special-color-green);
+  box-shadow: inset 0 0 10px var(--special-color-green);
+}
+.mainContainer {
+  background-color: var(--secondary-color);
+  border: solid 2px var(--special-color);
+  box-shadow: 0 0 10px 5px var(--secondary-color);
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+  padding: 40px;
+  color: var(--special-color-green);
+}
+
+
+.container {
+  max-width: 960px;
+}
+a{
+  text-decoration: none;
+}
+html, body, #eventsHolder{
+  min-height: 100%;
+  margin: 0;
+  background-color: var(--primary-color);
+  text-decoration: none;
+} 
+
+
+
+.reg {
+  margin-right: 20px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--special-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--special-color-green);
+}
+.left {
+  float: left;
+}
+/* --------  Menu div  ----------------------------------------------------------------------------- */
+
+
+/* .menuDiv {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 40px;
+  margin-top: 100px;
+  margin-bottom: -20px;
+}
+.menuList{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+.menuList ul {
+  margin-block-start: 0em;
+  padding-inline-start: 0px;
+  height: 100%;
+  margin-bottom: 0px;
+}
+.menuList ul li {
+  list-style: none;
+  width: 20%;
+  float: left ;
+  height: 100%;
+}
+.menuList ul li a {
+  border: solid 1px var(--special-color);
+  float: left;
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    padding: 0px 10px 0px 10px;
+    font-size: 13px;
+    color: #fff;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    text-align: center;
+}
+.menuList ul li a:hover {
+  text-decoration: none;
+  border: solid 2px var(--special-color-green) ;
+  color: var(--special-color-green);
+  box-shadow: inset 0 0 10px 1px var(--special-color-green);
+} */
+
