@@ -1,6 +1,10 @@
 - index.html
 - stykes.css
 - events.js
+                - import { showUserData, updateProduct } from './database/requesterDB.js';
+                - import { register, login, logout } from './loginRegister/loginRegister.js';
+                - import { productForm, changeProduct } from './products/product.js';
+                - import { loadHomеPageInfo } from './homePage/homePage.js';
 - database 
     - database.css  
     -  database.hbs 
@@ -13,16 +17,19 @@
 - loginReguster 
     - login.hbs  
     - loginRegister.css 
-    - loginRegister.js         /    import { addUsersDB, findUsersDB, showUserData } from '../database/requesterDB.js';
+    - loginRegister.js      
+            - import { addUsersDB, findUsersDB, showUserData } from '../database/requesterDB.js';
     - register.hbs
 - homePage 
     - homePage.css 
     - homePage.hbs 
-    - homePage.js              /    import { getProductData } from '../database/requesterDB.js'
+    - homePage.js              
+            - import { getProductData } from '../database/requesterDB.js'
     - menu.hbs
 - products 
     - addProductForm.hbs 
     - changeProductForm.hbs
-    - product.js              /     import {addProductsDB, findProductDB, updateProduct } from '../database/requesterDB.js'
+    - product.js              
+            - import {addProductsDB, findProductDB, updateProduct } from '../database/requesterDB.js'
 
 
