@@ -11,20 +11,25 @@
 | database.hbs  |
 | requesterDB.js  | 
 
-| First Header  |
+| homePage  |
 | ------------- | 
-| Content Cell  | 
-| Content Cell  |
+| homePage.css  | 
+| homePage.hbs  | 
+| homePage.js  | 
+| menu.hbs  |
 
-| First Header  |
+| loginReguster  |
 | ------------- | 
-| Content Cell  | 
-| Content Cell  |
+| login.hbs  | 
+| loginRegister.css  |
+| loginRegister.js  |
+| register.hbs |
 
-| First Header  |
+| products  |
 | ------------- | 
-| Content Cell  | 
-| Content Cell  |
+| addProductForm.hbs  | 
+| changeProductForm.hbs |
+| product.js |
 
 | First Header  |
 | ------------- | 
