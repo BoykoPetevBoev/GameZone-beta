@@ -1,27 +1,28 @@
 - index.html
 - stykes.css
-- events,js
+- events.js
+- database 
+    - database.css  
+    -  database.hbs 
+    - requesterDB.js    
 - common    
     - common.css  
     - footer.hbs 
     - header.hbs 
     - userInfo.hbs 
-- database 
-    - database.css  
-    -  database.hbs 
-    - requesterDB.js  
-- homePage 
-    - homePage.css 
-    - homePage.hbs 
-    - homePage.js 
-    - menu.hbs
 - loginReguster 
     - login.hbs  
     - loginRegister.css 
-    - loginRegister.js 
+    - loginRegister.js         /    import { addUsersDB, findUsersDB, showUserData } from '../database/requesterDB.js';
     - register.hbs
+- homePage 
+    - homePage.css 
+    - homePage.hbs 
+    - homePage.js              /    import { getProductData } from '../database/requesterDB.js'
+    - menu.hbs
 - products 
     - addProductForm.hbs 
     - changeProductForm.hbs
-    - product.js
+    - product.js              /     import {addProductsDB, findProductDB, updateProduct } from '../database/requesterDB.js'
+
 
