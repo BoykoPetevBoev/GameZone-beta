@@ -1,4 +1,6 @@
-import { addUsersDB, findUsersDB, showUserData } from '../database/requesterDB.js'
+import { addUsersDB, findUsersDB, showUserData } from '../database/requesterDB.js';
+import { loadPage } from '../events.js';
+
 
 function register(ctx) {
     let errors = checkForEmpty('registerRequired');
@@ -30,42 +32,35 @@ function register(ctx) {
         errors = true;
     }
     if (errors) { return }
-    addNewUser(ctx, firstName, lastName, email, phone, password);
+    return addNewUser(ctx, firstName, lastName, email, phone, password);
 }
 
 function login(ctx) {
     const errors = checkForEmpty('loginRequired');
-    if (errors) { return }
+    if (errors) { return false }
 
     const { email, password } = ctx.params;
-    findUsersDB(email)
+    return findUsersDB(email)
         .then(user => {
             if (user.password == password) {
-                console.log(user)
-                saveUserInfo(user);
-                loadPage(ctx, './templates/pages/homePage.hbs');
-                return user
+                return user;
             }
             else {
                 errorMsg(true, 'loginPassword');
                 errorMsg(true, 'loginEmail');
+                return false 
             }
-        })
-        .then(res => {
-            console.log(res)
-            printUserInfo(res)
         })
         .catch(err => {
             errorMsg(true, 'loginPassword');
             errorMsg(true, 'loginEmail');
+            return false 
         })
 }
 
 function logout(ctx) {
     sessionStorage.clear();
-    ctx.redirect('/home');
 }
-
 
 function errorMsg(error, elementID) {
     const element = document.getElementById(elementID);
@@ -88,6 +83,7 @@ function errorMsg(error, elementID) {
         classList(false, element, 'errorBox')
     }
 }
+
 function checkForEmpty(elementsClass) {
     let errors = false;
     const msg = {
@@ -112,12 +108,9 @@ function checkForEmpty(elementsClass) {
     return errors;
 }
 function classList(operation, element, className) {
-    if (operation == true) {
-        element.classList.add(className);
-    }
-    else {
-        element.classList.remove(className);
-    }
+    operation == true
+        ? element.classList.add(className)
+        : element.classList.remove(className)
 }
 function addNewUser(ctx, firstName, lastName, email, phone, password) {
     const user = {
@@ -130,31 +123,13 @@ function addNewUser(ctx, firstName, lastName, email, phone, password) {
         address: '',
         img: ''
     }
-    addUsersDB(user)
+    return addUsersDB(user)
         .then(res => {
-            saveUserInfo(res);
-            loadPage(ctx, './templates/homePages/homePage.hbs');
+            return res;
         })
         .catch(err => {
             console.log(err);
         })
 }
-function saveUserInfo(res) {
-    sessionStorage.setItem('email', res._id);
-    sessionStorage.setItem('code', res._rev);
-    sessionStorage.setItem('firstName', res.firstName);
-    sessionStorage.setItem('lastName', res.lastName);
-    sessionStorage.setItem('phone', res.phone);
-    sessionStorage.setItem('address', res.address);
-    if (res._id == 'admin') {
-        sessionStorage.setItem('admin', true)
-    }
-}
-function loadPage(ctx, path) {
-    getUserInfo(ctx);
-    ctx.loadPartials(templatesPaths)
-        .partial(path)
-}
-
 
 export { register, login, logout }
