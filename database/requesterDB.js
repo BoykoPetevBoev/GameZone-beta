@@ -1,5 +1,14 @@
+// var PouchDB = require('pouchdb');
+
 const usersDB = new PouchDB('users');
 const productsDB = new PouchDB('items');
+// var remoteCouch = 'http://http://localhost:5984/users';
+
+// function sync() {
+//     var opts = {live: true};
+//     usersDB.replicate.to(remoteCouch, opts);
+//     usersDB.replicate.from(remoteCouch, opts);
+//   }
 
 //  Users ------------------------------------------------------
 function addUsersDB(user) {
@@ -61,6 +70,31 @@ function addProductsDB(item) {
         .then(res => { return res; })
         .catch(err => { return err; })
 }
+function findProductDB(item) {
+    return productsDB.get(item)
+        .then(res => { return res; })
+        .catch(err => { return err; })
+}
+
+function updateProduct(id, obj) {
+    return productsDB.get(id)
+        .then(doc => {
+            return productsDB.put({
+                _id: id,
+                _rev: doc._rev,
+                category: obj.category,
+                brand: obj.brand,
+                model: obj.model,
+                price: obj.price,
+                image: obj.image
+            });
+        })
+        .then(res => { console.log(res) })
+        .catch(err => { console.log(err); });
+}
+
+
+
 function getProductData() {
     return productsDB.allDocs({
         include_docs: true,
@@ -81,6 +115,11 @@ function showProductsData() {
         .catch(err => { console.log(err); })
 }
 
+// if (remoteCouch) {
+//     sync();
+// }
+
+
 window.showProductsData = showProductsData
 window.showUserData = showUserData;
-export { addUsersDB, findUsersDB, showUserData, addProductsDB, showProductsData, getProductData }
+export { addUsersDB, findUsersDB, showUserData, addProductsDB, showProductsData, getProductData, findProductDB, updateProduct }
