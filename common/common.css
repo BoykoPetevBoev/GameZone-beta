@@ -1,71 +1,67 @@
+.header {
+  padding: 2px;
+  width: 100%;
+  height: 30px;
+  background: var(--special-color);
+  border-bottom: solid 2px black;
+  box-shadow: 0px 2px 30px 15px var(--secondary-color);
+  background: rgb(16,43,62);
+  background: linear-gradient(90deg, rgba(16,43,62,1) 0%, var(--special-color) 50%, rgba(16,43,62,1) 100%);
+} 
+/* .header div {
+  border: 1px solid var(--primary-color);
+} */
+.headerLeft, .headerRight, .headerCenter {
+  float: left;
+  position: relative;
+  height: 30px;
+  width: 25%;
+  text-align: center;
+  margin-top: -2px;
+}
+.headerCenter {
+  width: 50%;
+}
+.headerRight div {
+  margin-left: 70px;
+  margin-right: 20px;
+}
+
 .headerCenterLogo {
-    float: none;
-    width: 50%;
-    height: auto;
-    padding-bottom: 1%;
-    box-shadow: 0px 2px 15px 1px var(--secondary-color);
-  }
-  .headerCenterLogo h1 {
-    transform: skew(-20deg);
-    color: var(--special-color);
-    opacity: 0.1
-  }
-  .userInput {
-    width: 90%;
-  }
-  .right {
-    float: right;
-    margin-left: 200px;
-    text-shadow: 0 0 8 black;
-  }
-  .header {
-    padding: 2px;
-    width: 100%;
-    height: 30px;
-    background: var(--special-color);
-    border-bottom: solid 2px var(--secondary-color);
-    box-shadow: 0px 2px 30px 15px var(--secondary-color);
-    background: rgb(16,43,62);
-    background: linear-gradient(90deg, rgba(16,43,62,1) 0%, var(--special-color) 50%, rgba(16,43,62,1) 100%);
-  }
-  /* .header div {
-      border: 1px solid var(--primary-color);
-    } */
-  .headerLeft, .headerRight, .headerCenter {
-    float: left;
-    position: relative;
-    height: 30px;
-    width: 25%;
-    text-align: center;
-    margin-top: -2px;
-  }
-  .headerLeft a {
-    float: left;
-  }
-  .headerRight a {
-    float: right;
-    padding-right: 20px;
-  }
-  .headerCenter {
-    width: 50%
-  }
-  .centerElement {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .headerContainer {
-    width: 70%;
-  }
-  .btnHeaderStyleOne {
-    transform: skew(-20deg);
-    color: var(--special-color-green);
-    font-size: 17px;
-    width: 100%;
-    height: 100%;
-    float: right  ;
-    transition:.2s ease;
-    text-shadow: 1px 1px 2px black;
-  }
+  width: 50%;
+  height: 100%;
+  box-shadow: 0px 2px 15px 1px black;
+}
+.headerCenterLogo h1 {
+  transform: skew(-20deg);
+  color: var(--special-color);
+  font-size: 23px;
+}
+
+.skewDiv {
+  transform: skew(20deg);
+  height: 100%;
+  min-width: 15px;
+  background-color: black;
+  text-shadow: 0 0 3px var(--special-color);
+  transition:.2s ease;
+  animation-delay: 1s;
+}
+.skewDiv:hover {
+  background-color: rgb(3, 16, 26);
+}
+
+
+.btnHeaderStyleOne {
+  transform: skew(-20deg);
+  color: var(--special-color-green);
+  font-size: 17px;
+  width: 10px;
+  height: 100%;
+  float: right  ;
+  transition:.2s ease;
+  text-shadow: 1px 1px 2px black;
+}
   .btnHeaderStyleOne:hover {
     text-decoration: none;
     color: var(--special-color-red);
@@ -77,3 +73,58 @@
     color: var(--secondary-color);
     border-bottom: solid 1px var(--secondary-color);
   }  
+
+  @keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 1;
+      z-index: 1;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+.userInfoBack {
+  background-color: var(--secondary-color);
+  height: 300px;
+  box-shadow: 0px 2px 15px 1px var(--secondary-color);
+  border-bottom: solid 2px var(--special-color);
+  /* animation: slide-in-top 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
+}
+/* .userInfoBack div {
+  border: solid 1px gray;
+} */
+.userInfo {
+  width: 70%;
+  height: 100%;
+}
+.userInfo > div {
+  /* border: solid 1px var(--special-color-red); */
+  float: left;
+  height: 100%;
+  width: 25%;
+  color: var(--primary-color);
+}
+.userInfoItems {
+  float: right;
+  width: 90%;
+  height: 80%;
+  overflow-y: scroll;
+  border: solid 1px var(--special-color);
+}
+.userImage {
+  height: 40%;
+}
+.user {
+  width: 50%;
+  height: 60%;
+}
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: var(--secondary-color);
+}
