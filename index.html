@@ -9,6 +9,9 @@
 
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="./styles/styles.css" />
+  <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?rd5re8">
+  
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
 
   <script src="./node_modules/jquery/dist/jquery.js"></script>
   <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script> 
@@ -16,7 +19,9 @@
   <script src="./node_modules/sammy/lib/sammy.js"></script>
   <script src="./node_modules/sammy/lib/plugins/sammy.handlebars.js"></script> 
   <script src="./node_modules/pouchdb/dist/pouchdb.js"></script>
-  <!-- <script src="//cdn.jsdelivr.net/npm/pouchdb@7.1.1/dist/pouchdb.min.js"></script> -->
+  <script src="./node_modules/pouchdb/dist/pouchdb.min.js"></script>
+  <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 
   
   <link rel="stylesheet" href="./loginRegister/loginRegister.css">
@@ -24,9 +29,11 @@
   <link rel="stylesheet" href="./homePage/homePage.css">
   <link rel="stylesheet" href="./database/database.css">
 
+  <script type="module" src="./database/requesterDB.js"></script>
   <script type="module" src="./events.js"></script>
   <script type="module" src="./loginRegister/loginRegister.js"></script>
-  <script type="module" src="./database/requesterDB.js"></script>
+  <script type="module" src="./pushNotifications/pushNotifications.js"></script>
+  <script type="module" src="./pushNotifications/sw.js"></script>
 
 
 </head>
