@@ -8,7 +8,7 @@ function productForm(ctx) {
         category,
         brand,
         model,
-        price,
+        price: Number(price).toFixed(2),
         image
     }
     addProductsDB(item)
@@ -20,13 +20,26 @@ function productForm(ctx) {
         })
 }
 function changeProduct(ctx) {
+    console.log(ctx)
     const id = ctx.params.id;
     return findProductDB(id)
         .then(res => {
+            console.log(ctx.info)
             ctx.info = res;
             return ctx;
         })
         .catch(err => console.log(err))
 }
+function loadProductPage(ctx){
+    console.log(ctx)
+    const id = ctx.params.id;
+    return findProductDB(id)
+        .then(data => {
+            ctx.data = data;
+            return ctx;
+        })
+        .catch(err => console.log(err))
+}
 
-export { productForm, changeProduct }
+
+export { productForm, changeProduct, loadProductPage }
