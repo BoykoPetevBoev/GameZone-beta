@@ -1,0 +1,28 @@
+{{> header}}
+{{> userInfo}}
+
+<div id="homePage" class="homePage center">
+
+    <div class="imageProduct">
+        <img src={{doc.image}} alt="">
+    </div>
+
+    <div class="titleProduct">
+        <p>{{doc.category}} - {{doc.brand}} {{doc.model}}</p>
+    </div>
+    <div class="priceProduct">
+        <h3>${{doc.price}}</h3>
+    </div>
+
+    <div class="btnProduct">
+        {{#if ../admin}}
+        <a class="btn left btnBuy" href="/{{id}}">CHANGE</a>
+        {{else}}
+        <a class="btn left btnBuy" href="">BUY</a>
+        {{/if}}
+        <a class="btn left btnSave" href="/{{doc.category}}/{{id}}">INFO</a>
+    </div>
+
+</div>
+
+{{> footer}}
