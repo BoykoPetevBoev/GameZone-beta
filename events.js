@@ -1,7 +1,7 @@
 import { showUserData, updateProduct } from './database/requesterDB.js';
 import { register, login, logout } from './loginRegister/loginRegister.js';
-import { productForm, changeProduct } from './products/product.js';
-import { loadHomеPageInfo } from './homePage/homePage.js';
+import { productForm, changeProduct, loadProductPage } from './products/product.js';
+import { getProductsData, loadProductCategory } from './homePage/homePage.js';
 // import { pushNotifications } from "./pushNotifications/pushNotifications.js"
 
 const templatesPaths = {
@@ -86,10 +86,66 @@ function getUserInfoFrom(ctx) {
         this.get('#/database', function (ctx) {
             loadPage(ctx, './database/databaseInfo.hbs');
         });
-        this.get('#/home/:id', function (ctx) {
+        this.get('/mouse', function(ctx){
+            getUserInfoFrom(ctx)
+            loadProductCategory(ctx)
+                .then(data => {
+                    ctx.data = data.slice(0);
+                    loadPage(ctx, './homePage/homePage.hbs');
+                })
+                .catch(err => console.log(err));
+        });
+        this.get('/keyboard', function(ctx){
+            getUserInfoFrom(ctx)
+            loadProductCategory(ctx)
+                .then(data => {
+                    ctx.data = data.slice(0);
+                    loadPage(ctx, './homePage/homePage.hbs');
+                })
+                .catch(err => console.log(err));
+        });
+        this.get('/headset', function(ctx){
+            getUserInfoFrom(ctx)
+            loadProductCategory(ctx)
+                .then(data => {
+                    ctx.data = data.slice(0);
+                    loadPage(ctx, './homePage/homePage.hbs');
+                })
+                .catch(err => console.log(err));
+        });
+        this.get('/mousepad', function(ctx){
+            getUserInfoFrom(ctx)
+            loadProductCategory(ctx)
+                .then(data => {
+                    ctx.data = data.slice(0);
+                    loadPage(ctx, './homePage/homePage.hbs');
+                })
+                .catch(err => console.log(err));
+        });
+        this.get('/accessoaries', function(ctx){
+            getUserInfoFrom(ctx)
+            loadProductCategory(ctx)
+                .then(data => {
+                    ctx.data = data.slice(0);
+                    loadPage(ctx, './homePage/homePage.hbs');
+                })
+                .catch(err => console.log(err));
+        });
+        this.get('/mouse/:id', function(ctx) {
+            // loadProductPage(ctx)
+            //     .then(ctx => loadPage(ctx, './products/productPage.hbs'))
+            //     .catch(err => console.log(err))
+                loadPage(ctx, './products/changeProductInfo.hbs')
+        } )
+        this.get('/keyboard/:id', loadProductPage)
+        this.get('/headset/:id', loadProductPage)
+        this.get('/mousepad/:id', loadProductPage)
+        this.get('/accessoaries/:id', loadProductPage)
+        
+        this.get('/:id', function (ctx) {
             changeProduct(ctx)
                 .then(ctx => {
-                    loadPage(ctx, './products/changeproductInfo.hbs')
+                    loadPage(ctx, './homePage/homePage.hbs')
                 })
                 .catch(err => console.log(err))
         });
@@ -103,13 +159,16 @@ function getUserInfoFrom(ctx) {
 })()
 function loadHomеPage(ctx) {
     getUserInfoFrom(ctx)
-    loadHomеPageInfo(ctx)
-        .then(ctx => {
+    getProductsData(ctx)
+        .then(data => {
+            ctx.data = data.rows.slice(0);
             loadPage(ctx, './homePage/homePage.hbs');
         })
         .catch(err => console.log(err));
 }
 function loadPage(ctx, path) {
+    console.log(ctx)
+    console.log(path)
     getUserInfoFrom(ctx);
     ctx.loadPartials(templatesPaths)
         .partial(path);
