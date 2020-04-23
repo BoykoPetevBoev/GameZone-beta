@@ -1,14 +1,14 @@
-// var PouchDB = require('pouchdb');
 
 const usersDB = new PouchDB('users');
 const productsDB = new PouchDB('items');
-// var remoteCouch = 'http://http://localhost:5984/users';
+const remoteUsersDB = new PouchDB('http://BoykoBoev:ma78lmts2@localhost:5984/users', { skip_setup: true });
+const remoteProductsDB = new PouchDB('http://BoykoBoev:ma78lmts2@localhost:5984/products', { skip_setup: true });
 
-// function sync() {
-//     var opts = {live: true};
-//     usersDB.replicate.to(remoteCouch, opts);
-//     usersDB.replicate.from(remoteCouch, opts);
-//   }
+usersDB.sync(remoteUsersDB)
+productsDB.sync(remoteProductsDB)
+
+
+
 
 //  Users ------------------------------------------------------
 function addUsersDB(user) {
@@ -46,8 +46,16 @@ function generateTable(data) {
 function fillLine(columnType, data) {
     const line = [];
     data.map(info => {
-        const column = document.createElement(columnType)
-        column.textContent = info;
+        const column = document.createElement(columnType);
+
+        if(info.startsWith('https')){
+            const img = document.createElement('img');
+            img.src = info;
+            column.appendChild(img);
+        }
+        else {
+            column.textContent = info;
+        }
         line.push(column);
     })
     return line;
@@ -85,7 +93,7 @@ function updateProduct(id, obj) {
                 category: obj.category,
                 brand: obj.brand,
                 model: obj.model,
-                price: obj.price,
+                price: Number(obj.price).toFixed(2),
                 image: obj.image
             });
         })
