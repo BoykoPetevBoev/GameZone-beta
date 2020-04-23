@@ -110,6 +110,10 @@
   width: 25%;
   color: var(--primary-color);
 }
+.userInfo a {
+  width: 200px;
+  margin: 10px;
+}
 .userInfoItems {
   float: right;
   width: 90%;
@@ -127,7 +131,8 @@
 .footer {
   width: 100%;
   background-color: var(--secondary-color);
-  margin-top: 2000px;
+  float: left;
+  margin-top: 150px;
   height: 400px;
   color: var(--primary-color);
 }
