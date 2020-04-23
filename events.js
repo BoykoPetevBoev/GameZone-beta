@@ -131,11 +131,13 @@ function getUserInfoFrom(ctx) {
                 })
                 .catch(err => console.log(err));
         });
-        this.get('/mouse/:id', function(ctx) {
-            // loadProductPage(ctx)
-            //     .then(ctx => loadPage(ctx, './products/productPage.hbs'))
-            //     .catch(err => console.log(err))
-                loadPage(ctx, './products/changeProductInfo.hbs')
+        this.get('/:id', function(ctx) {
+            loadProductPage(ctx)
+                .then(ctx => {
+                    console.log(ctx)
+                    loadPage(ctx, './products/productPage.hbs')
+                })
+                .catch(err => console.log(err))
         } )
         this.get('/keyboard/:id', loadProductPage)
         this.get('/headset/:id', loadProductPage)
@@ -157,6 +159,9 @@ function getUserInfoFrom(ctx) {
     })
     app.run();
 })()
+
+
+
 function loadHomеPage(ctx) {
     getUserInfoFrom(ctx)
     getProductsData(ctx)
@@ -167,8 +172,6 @@ function loadHomеPage(ctx) {
         .catch(err => console.log(err));
 }
 function loadPage(ctx, path) {
-    console.log(ctx)
-    console.log(path)
     getUserInfoFrom(ctx);
     ctx.loadPartials(templatesPaths)
         .partial(path);
