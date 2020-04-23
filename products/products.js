@@ -20,18 +20,15 @@ function productForm(ctx) {
         })
 }
 function changeProduct(ctx) {
-    console.log(ctx)
     const id = ctx.params.id;
     return findProductDB(id)
         .then(res => {
-            console.log(ctx.info)
             ctx.info = res;
             return ctx;
         })
         .catch(err => console.log(err))
 }
 function loadProductPage(ctx){
-    console.log(ctx)
     const id = ctx.params.id;
     return findProductDB(id)
         .then(data => {
