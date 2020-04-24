@@ -10,11 +10,11 @@
             <div class="form-group">
                 <label for="productType">Category:</label>
                 <select class="form-control" name="category">
-                    <option value="Mouse">Mouse</option>
-                    <option value="Keyboard">Keyboard</option>
-                    <option value="Headset">Headset</option>
-                    <option value="Mousepad">Mousepad</option>
-                    <option value="Accessoaries">Accessoaries</option>
+                    <option value="mouse">Mouse</option>
+                    <option value="keyboard">Keyboard</option>
+                    <option value="headset">Headset</option>
+                    <option value="mousepad">Mousepad</option>
+                    <option value="accessoaries">Accessoaries</option>
                 </select>
             </div>
 
@@ -33,6 +33,10 @@
             <div class="form-group ">
                 <label>Image</label>
                 <input type="text" class="form-control" name="image" value={{info.image}}>
+            </div>
+             <div class="form-group ">
+                <label>Second Image</label>
+                <input type="text" class="form-control" name="imageTwo" value={{info.imageTwo}}>
             </div>
 
             <button type="submit" class="btn" name="id" value="{{info_id}}">Submit</button>
