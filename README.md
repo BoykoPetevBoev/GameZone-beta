@@ -2,6 +2,12 @@
 Info...
  
 ## PushNotifications 
+
+A push notification is the delivery of information to a computing device from an application server where the request for the transaction is initiated by the server rather than by an explicit request from the client. While 'push notification' is most often used to refer to notifications on mobile devices, web applications also leverage this technology.
+
+* Push notifications are the first and often most important communications channel used by apps.
+* Nearly every major app uses push notifications for transactions and re-engagement.
+* Push notification technology is rapidly evolving from a simple message delivery system to a rich and interactive medium.
  
 ![PushNotifications](https://github.com/BoykoPetevBoev/GameZone/blob/master/README/ReadmePushNotifications.jpg)
 
@@ -32,7 +38,11 @@ export { something }
 ```
 #  
 
-## PouchDB CouchDB
+## PouchDB & CouchDB
+
+Use PouchDB as a local database and CouchDB as a cloud database. 
+Live sync set. Each entry in CouchDB automatically generates an entry in PouchDB.
+
 ![CouchDB](https://github.com/BoykoPetevBoev/GameZone/blob/master/README/ReadmeCouchDB.jpg)
 ```
 'use strict';
@@ -72,7 +82,7 @@ function showProductsData() {
 
 window.showProductsData = showProductsData
 window.showUserData = showUserData;
-export { addUsersDB, findUsersDB, showUserData, addProductsDB, showProductsData, getProductData, findProductDB, updateProduct }
+export { addUsersDB, findUsersDB, showUserData, addProductsDB, showProductsData, findProductDB, updateProduct }
 ```
 #  
 
