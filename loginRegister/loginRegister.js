@@ -1,5 +1,5 @@
 import { addUsersDB, findUsersDB, showUserData } from '../database/requesterDB.js';
-import { loadPage } from '../events.js';
+import { loadPage, saveUserInfo } from '../events.js';
 
 
 function register(ctx) {
@@ -32,36 +32,42 @@ function register(ctx) {
         errors = true;
     }
     if (errors) { return }
-    return addNewUser(ctx, firstName, lastName, email, phone, password);
+    addNewUser(ctx, firstName, lastName, email, phone, password)
+        .then(res => {
+            if (res) {
+                saveUserInfo(res);
+                ctx.redirect('#/home');
+            }
+        })
+        .catch(err => console.log(err));
 }
-
 function login(ctx) {
     const errors = checkForEmpty('loginRequired');
     if (errors) { return false }
 
     const { email, password } = ctx.params;
-    return findUsersDB(email)
+    findUsersDB(email)
         .then(user => {
             if (user.password == password) {
-                return user;
+                saveUserInfo(user);
+                ctx.redirect('#/home');
             }
             else {
                 errorMsg(true, 'loginPassword');
                 errorMsg(true, 'loginEmail');
-                return false 
+                return false
             }
         })
         .catch(err => {
             errorMsg(true, 'loginPassword');
             errorMsg(true, 'loginEmail');
-            return false 
+            return false
         })
 }
-
 function logout(ctx) {
     sessionStorage.clear();
+    ctx.redirect('#/home');
 }
-
 function errorMsg(error, elementID) {
     const element = document.getElementById(elementID);
     const msg = {
@@ -83,7 +89,6 @@ function errorMsg(error, elementID) {
         classList(false, element, 'errorBox')
     }
 }
-
 function checkForEmpty(elementsClass) {
     let errors = false;
     const msg = {
