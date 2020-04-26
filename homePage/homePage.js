@@ -1,26 +1,31 @@
 import { getProductData } from '../database/requesterDB.js'
+import { getUserInfoFrom, loadPage } from '../events.js'
 
-function getProductsData(ctx) {
-    return getProductData()
-        .then(data => {
-            return data;
-        })
-        .catch(err => console.log(err))
+const pathCategory = {
+    '/#/home/mouse': 'mouse',
+    '/#/home/keyboard': 'keyboard',
+    '/#/home/headset': 'headset',
+    '/#/home/mousepad': 'mousepad',
+    '/#/home/accessoaries': 'accesoaries'
 }
-function loadProductCategory(ctx) {
-    const pathCategory = {
-        '/mouse': 'mouse',
-        '/keyboard': 'keyboard',
-        '/headset': 'headset',
-        '/mousepad': 'mousepad',
-        '/accessoaries': 'accesoaries'
-    }
-    return getProductData(ctx)
+function loadHomеPage(ctx) {
+    getUserInfoFrom(ctx)
+    getProductData(ctx)
+        .then(data => {
+            ctx.data = data.rows.slice(0);
+            loadPage(ctx, './homePage/homePage.hbs');
+        })
+        .catch(err => console.log(err));
+}
+function loadPageCategory(ctx) {
+    getUserInfoFrom(ctx)
+    getProductData()
         .then(data => {
             const category = data.rows.filter(product => product.doc.category == pathCategory[ctx.path])
-            return category
+            ctx.data = category.slice(0);
+            loadPage(ctx);
         })
         .catch(err => console.log(err))
 }
 
-export { getProductsData, loadProductCategory  };
+export { loadPageCategory, loadHomеPage };
