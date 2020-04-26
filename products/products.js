@@ -19,24 +19,26 @@ function productForm(ctx) {
             console.log(err);
         })
 }
-function changeProduct(ctx) {
+function loadChangeProductPage(ctx) {
+    console.log(ctx)
     const id = ctx.params.id;
-    return findProductDB(id)
+    findProductDB(id)
         .then(res => {
             ctx.info = res;
-            return ctx;
+            loadPage(ctx, './products/changeProductInfo.hbs')
         })
         .catch(err => console.log(err))
 }
+
 function loadProductPage(ctx){
     const id = ctx.params.id;
     return findProductDB(id)
         .then(data => {
             ctx.data = data;
-            return ctx;
+            loadPage(ctx, './products/productPage.hbs')
         })
         .catch(err => console.log(err))
 }
 
 
-export { productForm, changeProduct, loadProductPage }
+export { productForm, loadChangeProductPage, loadProductPage }
