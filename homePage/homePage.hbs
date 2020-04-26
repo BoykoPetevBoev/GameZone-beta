@@ -18,20 +18,25 @@
             <p>{{doc.category}} - {{doc.brand}} {{doc.model}}</p>
         </div>
         <div class="priceProduct">
-            <h3>${{doc.price}}.00</h3>
+            <h3>${{doc.price}}</h3>
         </div>
 
         <div class="btnProduct">
             {{#if ../admin}}
-            <a class="btn left btnBuy" href="#/home/{{id}}">CHANGE</a>
+            <a class="btn left btnBuy" href="#/productForm/{{id}}">Change</a>
             {{else}}
-            <a class="btn left btnBuy" href="">BUY</a>
+            <a class="btn left btnBuy" href="">Add to cart</a>
             {{/if}}
-            <a class="btn left btnSave" href="">INFO</a>
+            <a class="btn left btnSave" href="#/home/{{doc.category}}/{{id}}">More</a>
         </div>
 
     </div>
     {{/each}}
 
 </div>
-{{!-- {{> footer}} --}}
+{{> footer}}
+<script>
+    Handlebars.registerHelper('toLowerCase', function (str) {
+        return str.toLowerCase();
+    });
+</script>
