@@ -25,18 +25,14 @@ const applicationServerPublicKey = 'BKTY4jTJ_YSMRf4miX6GE74Z1Jg_ANPdowdcsric6mj8
 let isSubscribed = false;
 let swRegistration = null;
 
-function something() {
-    var pushButton = document.getElementById('subscribe');
-    main(pushButton);
-}
-
-function main(pushButton) {
+function main() {
+    const pushButton = document.getElementById('subscribe');
     if ('serviceWorker' in navigator && 'PushManager' in window) {
-        console.log('Service Worker and Push is supported');
+        // console.log('Service Worker and Push is supported');
 
         navigator.serviceWorker.register('sw.js')
             .then(function (swReg) {
-                console.log('Service Worker is registered', swReg);
+                // console.log('Service Worker is registered', swReg);
 
                 swRegistration = swReg;
                 initializeUI(pushButton);
@@ -78,9 +74,9 @@ function initializeUI(pushButton) {
             isSubscribed = !(subscription === null);
 
             if (isSubscribed) {
-                console.log('User IS subscribed.');
+                // console.log('User IS subscribed.');
             } else {
-                console.log('User is NOT subscribed.');
+                // console.log('User is NOT subscribed.');
             }
 
             updateBtn(pushButton);
@@ -88,16 +84,16 @@ function initializeUI(pushButton) {
 }
 function updateBtn(pushButton) {
     if (Notification.permission === 'denied') {
-        pushButton.textContent = 'Push Messaging Blocked.';
+        pushButton.textContent = 'BLOCKED';
         pushButton.disabled = true;
         updateSubscriptionOnServer(null);
         return;
-      }
+    }
 
     if (isSubscribed) {
-        pushButton.textContent = 'Disable Push Messaging';
+        pushButton.textContent = 'ALLOWED';
     } else {
-        pushButton.textContent = 'Enable Push Messaging';
+        pushButton.textContent = 'SUBSCRIBE';
     }
 
     pushButton.disabled = false;
@@ -110,11 +106,8 @@ function subscribeUser(pushButton) {
     })
         .then(function (subscription) {
             console.log('User is subscribed.');
-
             updateSubscriptionOnServer(subscription);
-
             isSubscribed = true;
-
             updateBtn(pushButton);
         })
         .catch(function (err) {
@@ -136,9 +129,18 @@ function updateSubscriptionOnServer(subscription) {
     //     subscriptionDetails.classList.add('is-invisible');
     // }
 }
+function showPushNotification(options) {
+    const title = 'GameZone';
+    navigator
+        .serviceWorker
+        .ready
+        .then((sw) => {
+            sw.showNotification(title, options);
+        });
+}
 
+window.showPushNotification = showPushNotification
+window.main = main;
 
-
-window.something = something;
-export { something }
+export { showPushNotification }
 
