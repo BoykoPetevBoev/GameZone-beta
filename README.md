@@ -81,9 +81,7 @@ function errorHandler(err){
     return err;
 }
 
-window.showProductsData = showProductsData
-window.showUserData = showUserData;
-export { addUsersDB, findUsersDB, showUserData, addProductsDB, showProductsData, findProductDB, updateProduct }
+export { getData, putData, getAllData }
 ```
 #  
 
