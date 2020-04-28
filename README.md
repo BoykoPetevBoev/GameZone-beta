@@ -49,35 +49,36 @@ Live sync set. Each entry in CouchDB automatically generates an entry in PouchDB
 
 const usersDB = new PouchDB('users');
 const productsDB = new PouchDB('items');
-const remoteUsersDB = new PouchDB('http://USERNAME:PASSWORD@localhost:5984/users', { skip_setup: true });
-const remoteProductsDB = new PouchDB('http://USERNAME:PASSWORD@localhost:5984/products', { skip_setup: true });
-usersDB.sync(remoteUsersDB)
-productsDB.sync(remoteProductsDB)
+const remoteUsersDB = new PouchDB('http://BoykoBoev:ma78lmts2@localhost:5984/users', { skip_setup: true });
+const remoteProductsDB = new PouchDB('http://BoykoBoev:ma78lmts2@localhost:5984/products', { skip_setup: true });
+usersDB.sync(remoteUsersDB);
+productsDB.sync(remoteProductsDB);
+const db = {
+    users: usersDB,
+    products: productsDB
+};
 
-//  Users ---------------
-function addUsersDB(user) {...
+function getData(name, id) {
+    return db[name].get(id)
+        .then(res => { return res; })
+        .catch(errorHandler);
 }
-function findUsersDB(user) {...
+function putData(name, obj) {
+    return db[name].put(obj)
+        .then(res => { return res; })
+        .catch(errorHandler);
 }
-function showUserData() {...
+function getAllData(name) {
+    return db[name].allDocs({
+        include_docs: true,
+        attachments: true
+    })
+        .then(res => { return res; })
+        .catch(errorHandler);
 }
-function generateTable(data) {...
-}
-function fillLine(columnType, data) {...
-}
-function printTable(table) {...
-}
-
-// Products ----------------
-function addProductsDB(item) {
-}
-function findProductDB(item) {
-}
-function updateProduct(id, obj) {
-}
-function getProductData() {
-}
-function showProductsData() {
+function errorHandler(err){
+    console.log(err);
+    return err;
 }
 
 window.showProductsData = showProductsData
