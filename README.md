@@ -86,6 +86,43 @@ export { addUsersDB, findUsersDB, showUserData, addProductsDB, showProductsData,
 ```
 #  
 
+## Sammy
+
+Sammy is a tiny javascript framework built on top of jQuery inspired by Ruby's Sinatra.
+Like Sinatra, a Sammy application revolves around 'routes'. Routes in Sammy are a little different, though. Not only can you define 'get' and 'post' routes, but you can also bind routes to custom events triggered by your application.
+
+```
+(() => {
+    const app = Sammy('#eventsHolder', function () {
+        this.use('Handlebars', 'hbs');
+        this.get('index.html', function (ctx) { ctx.redirect('/') });
+        this.get('/', function (ctx) { ctx.redirect('#/home') });
+        this.get('#/home', loadHomеPage);
+        this.get('#/register', loadPage);
+        this.post('#/register', register);
+        this.get('#/login', loadPage);
+        this.post('#/login', login);
+        this.get('#/logout', logout);
+        this.get('#/productForm', loadPage);
+        this.post('#/productForm', productForm);
+        this.get('#/database', loadPage);
+        this.get('#/home/mouse', loadPageCategory);
+        this.get('#/home/keyboard', loadPageCategory);
+        this.get('#/home/headset', loadPageCategory);
+        this.get('#/home/mousepad', loadPageCategory);
+        this.get('#/home/accessoaries', loadPageCategory);
+        this.get('#/home/mouse/:id', loadProductPage);
+        this.get('#/home/keyboard/:id', loadProductPage);
+        this.get('#/home/headset/:id', loadProductPage);
+        this.get('#/home/mousepad/:id', loadProductPage);
+        this.get('#/home/accessoaries/:id', loadProductPage);
+        this.get('#/productForm/:id', loadChangeProductPage);
+        });
+    })
+    app.run();
+})()
+```
+#
 - index.html
 - stykes.css
 - events.js
