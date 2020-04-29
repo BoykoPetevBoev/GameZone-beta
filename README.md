@@ -58,27 +58,13 @@ const db = {
     products: productsDB
 };
 
-function getData(name, id) {
-    return db[name].get(id)
-        .then(res => { return res; })
-        .catch(errorHandler);
+function getData(name, id) {...
 }
-function putData(name, obj) {
-    return db[name].put(obj)
-        .then(res => { return res; })
-        .catch(errorHandler);
+function putData(name, obj) {...
 }
-function getAllData(name) {
-    return db[name].allDocs({
-        include_docs: true,
-        attachments: true
-    })
-        .then(res => { return res; })
-        .catch(errorHandler);
+function getAllData(name) {...
 }
-function errorHandler(err){
-    console.log(err);
-    return err;
+function errorHandler(err) {...
 }
 
 export { getData, putData, getAllData }
