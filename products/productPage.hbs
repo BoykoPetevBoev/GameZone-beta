@@ -6,7 +6,7 @@
 {{> menu}}
 
 <div class="productHeader">
-    <h2>{{data.category}} - {{data.brand}} {{data.model}}</h2>
+    <h2>{{data.brand}} {{data.model}}</h2>
 </div>
 
 <div class="productPage center pageWidth">
@@ -14,26 +14,28 @@
     <div class="productImage left">
         <img src={{data.image}} alt="">
     </div>
-    <div class="productimage right">
+
+    <div class="productCenter center">
+        <div class="productOrderInfo">
+            <div class="">
+                <h3>${{data.price}}</h3>
+            </div>
+
+            <div class="">
+                {{#if ../admin}}
+                <a class="btn" href="/{{id}}">CHANGE</a>
+                {{else}}
+                <a class="btn" href="">Add to cart</a>
+                {{/if}}
+            </div>
+        </div>
+        <div class="productMainInfo">
+
+        </div>
+    </div>
+
+    <div class="productImage right">
         <img src="{{data.imageTwo}}" alt="">
-    </div>
-
-    <div class="productMainInfo">
-        <p>Na majka ti</p>
-    </div>
-    <div class="productOrderInfo">
-
-        <div class="">
-            <h3>${{data.price}}</h3>
-        </div>
-
-        <div class="">
-            {{#if ../admin}}
-            <a class="btn" href="/{{id}}">CHANGE</a>
-            {{else}}
-            <a class="btn" href="">Add to cart</a>
-            {{/if}}
-        </div>
     </div>
 
 </div>
