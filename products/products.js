@@ -1,29 +1,45 @@
 import { putData, getData } from '../database/requesterDB.js';
-import { loadPage } from '../events.js';
+import { loadPage, getUserInfoFrom } from '../events.js';
 import { showPushNotification } from '../pushNotifications/pushNotifications.js';
+import { loadHomеPage } from '../homePage/homePage.js';
 
 function productForm(ctx) {
-    const { category, brand, model, price, image } = ctx.params;
-    const item = {
-        _id: new Date(),
-        category,
-        brand,
-        model,
-        price: Number(price).toFixed(2),
-        image
+    const { category, brand, model, price, image, imageTwo } = ctx.params;
+    console.log(ctx.params)
+    const item = ctx.params;
+    item.price = Number(price).toFixed(2);
+    item['_id'] = new Date();
+    item.moreInfo = createTuple(ctx.params.moreInfo);
+
+    console.log(item);
+    const options ={
+        body: `NEW ${item.brand} ${item.model}`,
+        icon: item.image
     }
-    putData('products', item)
-        .then(res => {
-            const options ={
-                body: `NEW ${item.brand} ${item.model}`,
-                icon: item.image
-            }
-            showPushNotification(options);
-            ctx.redirect('#/home')
-        })
-        .catch(err => {
-            console.log(err);
-        })
+    showPushNotification(options);
+    // putData('products', item)
+    //     .then(res => {
+    //         const options ={
+    //             body: `NEW ${item.brand} ${item.model}`,
+    //             icon: item.image
+    //         }
+    //         showPushNotification(options);
+    //         ctx.redirect('#/home')
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //     })
+}
+function createTuple(text){
+    if(!text){
+        return;
+    }
+    const result = [];
+    const arr = text.split(', ');
+    arr.forEach(element => {
+        resulr.push(element.split('-'));
+    });
+    return result;
 }
 function loadChangeProductPage(ctx) {
     console.log(ctx)
@@ -31,7 +47,8 @@ function loadChangeProductPage(ctx) {
     getData('products', id)
         .then(res => {
             ctx.info = res;
-            loadPage(ctx, './products/changeProductInfo.hbs')
+            console.log(ctx);
+            loadPage(ctx, './products/productForm.hbs');
         })
         .catch(err => console.log(err))
 }
@@ -40,10 +57,21 @@ function loadProductPage(ctx){
     return getData('products', id)
         .then(data => {
             ctx.data = data;
-            loadPage(ctx, './products/productPage.hbs')
+            loadPage(ctx, './products/productPage.hbs');
         })
         .catch(err => console.log(err))
 }
+function addItemToCart(ctx){
+    getUserInfoFrom(ctx)
+    const idUser = ctx.email
+    if(!idUser){
+        ctx.redirect('#/register');
+        return;
+    }
+    const idProduct = ctx.params.id;
+    console.log(idProduct, idUser)
+    ctx.redirect('#/home')
+}
 
 
-export { productForm, loadChangeProductPage, loadProductPage }
+export { productForm, loadChangeProductPage, loadProductPage, addItemToCart }
