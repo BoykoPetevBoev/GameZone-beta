@@ -1,0 +1,53 @@
+{{> header}}
+{{> userInfo}}
+
+<div div class="mainContainer pageWidth center">
+    <div class="center">
+        {{#if info}}
+        <form id="addProduct" action="#/changeProductInfo" method="POST">
+        {{else}}
+        <form id="addProduct" action="#/productForm" method="POST">
+        {{/if}}
+                <div class="form-group">
+                    <label for="productType">Category:</label>
+                    <select class="form-control" name="category">
+                        <option value="mouse">Mouse</option>
+                        <option value="keyboard">Keyboard</option>
+                        <option value="headset">Headset</option>
+                        <option value="mousepad">Mousepad</option>
+                        <option value="accessoaries">Accessoaries</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Brand Name</label>
+                    <input type="text" class="form-control" name="brand" value={{info.brand}}>
+                </div>
+                <div class="form-group ">
+                    <label>Model Name</label>
+                    <input type="text" class="form-control" name="model" value={{info.model}}>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" class="form-control" name="price" value={{info.price}}>
+                </div>
+                <div class="form-group ">
+                    <label>Image</label>
+                    <input type="text" class="form-control" name="image" value={{info.image}}>
+                </div>
+                <div class="form-group ">
+                    <label>Second Image</label>
+                    <input type="text" class="form-control" name="imageTwo" value={{info.imageTwo}}>
+                </div>
+
+                <div>
+                    <label>More Info</label>
+                    <textarea name="moreInfo" id="" cols="30" rows="10"></textarea>
+                </div>
+
+                <button type="submit" class="btn" name="id" value="{{info_id}}">Submit</button>
+                {{!-- <button class="btn">Reset</button> --}}
+            </form>
+    </div>
+
+</div>
