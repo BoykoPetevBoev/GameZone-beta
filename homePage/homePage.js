@@ -1,5 +1,6 @@
-import { getProductData } from '../database/requesterDB.js'
+import { getAllData } from '../database/requesterDB.js'
 import { getUserInfoFrom, loadPage } from '../events.js'
+
 
 const pathCategory = {
     '/#/home/mouse': 'mouse',
@@ -10,7 +11,7 @@ const pathCategory = {
 }
 function loadHomеPage(ctx) {
     getUserInfoFrom(ctx)
-    getProductData(ctx)
+    getAllData('products')
         .then(data => {
             ctx.data = data.rows.slice(0);
             loadPage(ctx, './homePage/homePage.hbs');
@@ -19,7 +20,7 @@ function loadHomеPage(ctx) {
 }
 function loadPageCategory(ctx) {
     getUserInfoFrom(ctx)
-    getProductData()
+    getAllData('products')
         .then(data => {
             const category = data.rows.filter(product => product.doc.category == pathCategory[ctx.path])
             ctx.data = category.slice(0);
