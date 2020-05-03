@@ -1,20 +1,20 @@
 
-import { showUserData, updateProduct, getProductData } from './database/requesterDB.js';
+import { updateProduct } from './database/requesterDB.js';
 import { register, login, logout } from './loginRegister/loginRegister.js';
 import { productForm, loadChangeProductPage, loadProductPage } from './products/product.js';
 import { loadPageCategory, loadHomеPage } from './homePage/homePage.js';
-// import { pushNotifications } from "./pushNotifications/pushNotifications.js"
+import { addItemToCart } from './common/common.js';
 
 const commonPaths = {
     header: './common/header.hbs',
     footer: './common/footer.hbs',
-    menu: './homePage/menu.hbs',
+    menu: './common/menu.hbs',
     userInfo: './common/userInfo.hbs'
 };
 const templatesPaths = {
     '/#/login': './LoginRegister/login.hbs',
     '/#/register': './LoginRegister/register.hbs',
-    '/#/productForm': './products/addProductForm.hbs',
+    '/#/productForm': './products/productForm.hbs',
     '/#/database': './database/databaseInfo.hbs',
     '/#/home/mouse': './homePage/homePage.hbs',
     '/#/home/keyboard': './homePage/homePage.hbs',
@@ -32,6 +32,10 @@ function saveUserInfo(res) {
     if (res._id == 'admin') {
         sessionStorage.setItem('admin', true);
     }
+    console.log(res.shoppingCart)
+    if(res.shoppingCart){
+        sessionStorage.setItem('shoppingCart', JSON.stringify(res.shoppingCart));
+    }
 }
 function getUserInfoFrom(ctx) {
     ctx.email = sessionStorage.getItem('email');
@@ -41,6 +45,7 @@ function getUserInfoFrom(ctx) {
     ctx.phone = sessionStorage.getItem('phone');
     ctx.address = sessionStorage.getItem('address');
     ctx.admin = sessionStorage.getItem('admin');
+    ctx.shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart'));
 }
 (() => {
     const app = Sammy('#eventsHolder', function () {
@@ -73,6 +78,7 @@ function getUserInfoFrom(ctx) {
                 .then(res => ctx.redirect('#/home'))
                 .catch(err => console.log(err))
         });
+        this.get('#/home/addToCart/:id', addItemToCart)
     })
     app.run();
 })()
@@ -84,7 +90,8 @@ function loadPage(ctx, p) {
         : path = p;
     getUserInfoFrom(ctx);
     ctx.loadPartials(commonPaths)
-        .partial(path);
+        .partial(path)
+        // .then(res => printShoppingCartProducts(ctx.email));
 };
 
 
