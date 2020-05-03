@@ -2,19 +2,10 @@
     <div class="userInfo center">
         {{#if admin}}
         <div id="userInfo">
-            <a class="btn" href="#/addProduct">Add new product</a>
+            <a class="btn" href="#/productForm">Add new product</a>
             <a class="btn" href="#/database">Database</a>
-            <a  class="btn" href="http://localhost:9000/_utils">PouchDB</a>
+            <a class="btn" href="http://localhost:9000/_utils">PouchDB</a>
             <a class="btn" href="http://localhost:5984/_utils">CouchDB</a>
-        </div>
-        <div>
-
-        </div>
-        <div>
-            <p>Activity</p>
-            <div class="userInfoItems">
-
-            </div>
         </div>
         {{else}}
         <div></div>
@@ -37,8 +28,32 @@
         </div>
 
         <div>
-            <p>My Shopping Cart</p>
-            <div class="userInfoItems"></div>
+            <div id="shoppingCart">
+                <table>
+                    <tr>
+                        <th>Immage</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                    {{#each shoppingCart}}
+                    <tr>
+                        <td>
+                            <img src="{{image}}" alt="Not Found">
+                        </td>
+                        <td>
+                            <p>{{name}}</p>
+                        </td>
+                        <td>
+                            <p>{{price}}</p>
+                        </td>
+                        <td>
+                            <button value={{id}} onclick="removeItemFromCart(this)">REMOVE</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </div>
         </div>
         {{/if}}
 
