@@ -33,3 +33,7 @@
     background-color: var(--special-color-green);
     color: white;
   }
+  #dbInfo img {
+    max-height: 100px;
+    max-width: 100px;
+  }
