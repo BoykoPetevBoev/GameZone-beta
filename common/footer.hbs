@@ -1,7 +1,7 @@
 <footer class="footer center" onload="something()">
   <div class="center footerDivsPosition">
     <div class="left footerInfo">
-      <h1>GAME ZONE</h1>
+      {{!-- <h1>GAME ZONE</h1> --}}
       <p class="headerColor">Contact Us</p>
       <p>Phone: 0876 543 210</p>
       <p>Email: boykopetevboev@gmail.com</p>
@@ -19,13 +19,13 @@
       <p>Privacy Policy</p>
     </div>
     <div class="left footerInfo">
-      {{!-- <label for="subscribe">Subscribe More Info</label> --}}
-      {{!-- <input type="text" name="subscribe" placeholder="Enter your Email"> --}}
-      <button id="subscribe" onload="something()" onclick="something()">Subscribe</button>
+      <p class="headerColor">Push Notifications</p>
+      <button id="subscribe" onload="main()" onclick="main()">SUBSCRIBE</button>
+      <button onload="showPushNotification()" onclick="showPushNotification({body: 'Test'})">TEST</button>
     </div>
   </div>
   <div class="footerLinks">
-    <ul class="socicons-list">
+    {{!-- <ul class="socicons-list">
       <li>
         <a href='https://www.facebook.com' target='_blank'><span class="socicon-facebook"></span></a>
       </li>
@@ -38,12 +38,9 @@
       <li>
         <a href='https://www.google.com' target='_blank'><span class="socicon-googleplus"></span></a>
       </li>
-      {{!-- <li>
-        <a href='your_url_here' target='_blank'><span class="socicon-behance"></span></a>
-      </li> --}}
-    </ul>
+    </ul> --}}
   </div>
   <script type="text/javascript">
-    something();
+    main();
 </script>
 </footer>
