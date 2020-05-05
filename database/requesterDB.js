@@ -3,30 +3,40 @@ const usersDB = new PouchDB('users');
 const productsDB = new PouchDB('items');
 const remoteUsersDB = new PouchDB('http://BoykoBoev:ma78lmts2@localhost:5984/users', { skip_setup: true });
 const remoteProductsDB = new PouchDB('http://BoykoBoev:ma78lmts2@localhost:5984/products', { skip_setup: true });
+usersDB.sync(remoteUsersDB);
+productsDB.sync(remoteProductsDB);
+const db = {
+    users: usersDB,
+    products: productsDB
+};
 
-usersDB.sync(remoteUsersDB)
-productsDB.sync(remoteProductsDB)
-
-
-
-
-//  Users ------------------------------------------------------
-function addUsersDB(user) {
-    return usersDB.put(user)
+function getData(name, id) {
+    return db[name].get(id)
         .then(res => { return res; })
-        .catch(err => { return err; })
+        .catch(errorHandler);
 }
-function findUsersDB(user) {
-    return usersDB.get(user)
+function putData(name, obj) {
+    return db[name].put(obj)
         .then(res => { return res; })
-        .catch(err => { return err; })
+        .catch(errorHandler);
 }
-
-function showUserData() {
-    usersDB.allDocs({
+function getAllData(name) {
+    return db[name].allDocs({
         include_docs: true,
         attachments: true
     })
+        .then(res => { return res; })
+        .catch(errorHandler);
+}
+function errorHandler(err) {
+    console.log(err);
+    return err;
+}
+
+
+//  Users ---------------
+function showUserData() {
+    getAllData('usersDB')
         .then(res => {
             const table = generateTable(res.rows);
             printTable(table);
@@ -48,7 +58,7 @@ function fillLine(columnType, data) {
     data.map(info => {
         const column = document.createElement(columnType);
 
-        if(info.startsWith('https')){
+        if (info.startsWith('https')) {
             const img = document.createElement('img');
             img.src = info;
             column.appendChild(img);
@@ -70,20 +80,7 @@ function printTable(table) {
     })
 }
 
-
-// Products -------------------------------------------------------------------------------
-
-function addProductsDB(item) {
-    return productsDB.put(item)
-        .then(res => { return res; })
-        .catch(err => { return err; })
-}
-function findProductDB(item) {
-    return productsDB.get(item)
-        .then(res => { return res; })
-        .catch(err => { return err; })
-}
-
+// Products ----------------
 function updateProduct(id, obj) {
     return productsDB.get(id)
         .then(doc => {
@@ -94,23 +91,21 @@ function updateProduct(id, obj) {
                 brand: obj.brand,
                 model: obj.model,
                 price: Number(obj.price).toFixed(2),
-                image: obj.image
+                image: obj.image,
+                imageTwo: obj.imageTwo
             });
         })
         .then(res => { console.log(res) })
         .catch(err => { console.log(err); });
 }
-
-
-
-function getProductData() {
-    return productsDB.allDocs({
-        include_docs: true,
-        attachments: true
-    })
-        .then(res => { return res; })
-        .catch(err => { return err; })
-}
+// function getProductData() {
+//     return productsDB.allDocs({
+//         include_docs: true,
+//         attachments: true
+//     })
+//         .then(res => { return res; })
+//         .catch(err => { return err; })
+// }
 function showProductsData() {
     productsDB.allDocs({
         include_docs: true,
@@ -123,11 +118,11 @@ function showProductsData() {
         .catch(err => { console.log(err); })
 }
 
-// if (remoteCouch) {
-//     sync();
-// }
+
+
+
 
 
 window.showProductsData = showProductsData
 window.showUserData = showUserData;
-export { addUsersDB, findUsersDB, showUserData, addProductsDB, showProductsData, getProductData, findProductDB, updateProduct }
+export { getData, putData, getAllData, showProductsData, updateProduct }
