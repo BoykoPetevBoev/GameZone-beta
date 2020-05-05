@@ -1,18 +1,43 @@
 <div class="userInfoBack">
     <div class="userInfo center">
         {{#if admin}}
-        <div id="userInfo">
             <a class="btn" href="#/productForm">Add new product</a>
             <a class="btn" href="#/database">Database</a>
             <a class="btn" href="http://localhost:9000/_utils">PouchDB</a>
             <a class="btn" href="http://localhost:5984/_utils">CouchDB</a>
-        </div>
         {{else}}
-        <div></div>
-        <div id="userInfo">
-            <div class="userImage">
-                <img src="" alt="">
+
+        <div>
+            <div id="shoppingCart">
+                <table width="100%">
+                    <tr>
+                        <th width="20%"></th>
+                        <th width="50%"></th>
+                        <th width="15%"></th>
+                        <th width="15%"></th>
+                    </tr>
+                    {{#each shoppingCart}}
+                    <tr>
+                        <td class="shoppingCartImage">
+                            <img src="{{image}}" alt="Not Found">
+                        </td>
+                        <td>
+                            <p>{{name}}</p>
+                        </td>
+                        <td>
+                            <p>{{price}}</p>
+                        </td>
+                        <td>
+                            <button value={{id}} onclick="removeItemFromCart(this)">✖</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
             </div>
+        </div>
+        
+        <div id="userInfo">
+
             <div class="user left">
                 <p>Name:</p>
                 <p>Email:</p>
@@ -25,36 +50,11 @@
                 <p>{{phone}}</p>
                 <p>{{address}}</p>
             </div>
-        </div>
-
-        <div>
-            <div id="shoppingCart">
-                <table>
-                    <tr>
-                        <th>Immage</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th></th>
-                    </tr>
-                    {{#each shoppingCart}}
-                    <tr>
-                        <td>
-                            <img src="{{image}}" alt="Not Found">
-                        </td>
-                        <td>
-                            <p>{{name}}</p>
-                        </td>
-                        <td>
-                            <p>{{price}}</p>
-                        </td>
-                        <td>
-                            <button value={{id}} onclick="removeItemFromCart(this)">REMOVE</button>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </table>
+            <div id="totalPrice">
+                <h1>${{totalPrice}}</h1>
             </div>
         </div>
+
         {{/if}}
 
     </div>
