@@ -1,5 +1,5 @@
 import { putData, getData } from '../database/requesterDB.js';
-import { loadPage, getUserInfoFrom } from '../events.js';
+import { loadPage, getUserInfoFrom, saveUserInfo } from '../events.js';
 import { showPushNotification } from '../pushNotifications/pushNotifications.js';
 import { loadHomеPage } from '../homePage/homePage.js';
 
@@ -61,17 +61,5 @@ function loadProductPage(ctx){
         })
         .catch(err => console.log(err))
 }
-function addItemToCart(ctx){
-    getUserInfoFrom(ctx)
-    const idUser = ctx.email
-    if(!idUser){
-        ctx.redirect('#/register');
-        return;
-    }
-    const idProduct = ctx.params.id;
-    console.log(idProduct, idUser)
-    ctx.redirect('#/home')
-}
 
-
-export { productForm, loadChangeProductPage, loadProductPage, addItemToCart }
+export { productForm, loadChangeProductPage, loadProductPage }
