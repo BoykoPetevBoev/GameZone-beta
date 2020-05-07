@@ -1,4 +1,4 @@
-import { addUsersDB, findUsersDB, showUserData } from '../database/requesterDB.js';
+import { putData, getData } from '../database/requesterDB.js';
 import { loadPage, saveUserInfo } from '../events.js';
 
 
@@ -46,7 +46,7 @@ function login(ctx) {
     if (errors) { return false }
 
     const { email, password } = ctx.params;
-    findUsersDB(email)
+    getData('users', email)
         .then(user => {
             if (user.password == password) {
                 saveUserInfo(user);
@@ -126,9 +126,11 @@ function addNewUser(ctx, firstName, lastName, email, phone, password) {
         phone: phone,
         password: password,
         address: '',
-        img: ''
+        img: '',
+        shoppingCart: [],
+        totalPrice: 0
     }
-    return addUsersDB(user)
+    return putData('users', user)
         .then(res => {
             return res;
         })
