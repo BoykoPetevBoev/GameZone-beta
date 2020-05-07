@@ -14,14 +14,14 @@
     }
   }
   
-  .form {
+  .form {    
     text-align: center;
     background-color: var(--secondary-color);
     padding: 40px;
     width: 70%;
     max-width:600px;
-    margin:40px auto;
-    border-radius: 4px;
+    margin:80px auto;
+    /* border-radius: 4px; */
     box-shadow:0 4px 10px 4px var(--secondary-color);
     animation: fadeInDown;
     animation-duration: .5s;
@@ -103,4 +103,7 @@
     .errorBox:hover {
       box-shadow: 0px 0px 10px 5px var(--special-color-red);
       border: solid 1px var(--special-color-red);
+    }
+    .halfWidth {
+      width: 45%;
     }
