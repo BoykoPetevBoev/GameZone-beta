@@ -1,4 +1,5 @@
 {{> header}}
+
 <div class="form">
     <div class="tab-content">
 
@@ -13,33 +14,41 @@
             <form action="#/register" method="POST">
 
                 <div class="field-wrap">
-                    <input id="registerFirstName" class="registerRequired" type="text" name="firstName"  autocomplete="off" placeholder="First Name" />
+                    <div class="field-wrap halfWidth left">
+                        <input id="registerFirstName" class="registerRequired" type="text" name="firstName"
+                            autocomplete="off" placeholder="First Name" />
+                    </div>
+                    <div class="field-wrap halfWidth right">
+                        <input id="registerLasttName" class="registerRequired" type="text" name="lastName"
+                            autocomplete="off" placeholder="Last Name" />
+                    </div>
                 </div>
 
                 <div class="field-wrap">
-                    <input id="registerLasttName" class="registerRequired" type="text" name="lastName"  autocomplete="off" placeholder="Last Name" />
+                    <input id="registerEmail" class="registerRequired" type="text" name="email" autocomplete="off"
+                        placeholder="Email Address" />
                 </div>
 
                 <div class="field-wrap">
-                    <input id="registerEmail" class="registerRequired" type="text" name="email"  autocomplete="off" placeholder="Email Address" />
+                    <input id="registerPhone" class="registerRequired" type="text" name="phone" autocomplete="off"
+                        placeholder="Phone Number" />
                 </div>
 
                 <div class="field-wrap">
-                    <input id="registerPhone" class="registerRequired" type="text" name="phone"  autocomplete="off" placeholder="Phone Number" />
+                    <input id="registerPassword" class="registerRequired" type="password" name="password"
+                        autocomplete="off" placeholder="Password" />
                 </div>
 
                 <div class="field-wrap">
-                    <input id="registerPassword" class="registerRequired" type="password" name="password"  autocomplete="off" placeholder="Password" />
+                    <input id="registerRePassword" class="registerRequired" type="password" name="rePassword"
+                        autocomplete="off" placeholder="Confirm Password" />
                 </div>
 
-                <div class="field-wrap">
-                    <input id="registerRePassword" class="registerRequired" type="password" name="rePassword"  autocomplete="off" placeholder="Confirm Password" />
-                </div>
-
-                <button type="submit" class="button button-block" >GET STARTED</button>
+                <button type="submit" class="button button-block">GET STARTED</button>
 
             </form>
 
         </div>
     </div>
 </div>
+{{> footer}}
