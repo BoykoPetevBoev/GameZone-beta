@@ -1,5 +1,5 @@
 #   Thesis work
-Info...
+TODO...
  
 ## PushNotifications 
 
@@ -108,31 +108,12 @@ Like Sinatra, a Sammy application revolves around 'routes'. Routes in Sammy are 
 })()
 ```
 #
-- index.html
-- stykes.css
-- events.js
-- database 
-    - database.css  
-    -  database.hbs 
-    - requesterDB.js    
-- common    
-    - common.css  
-    - footer.hbs 
-    - header.hbs 
-    - userInfo.hbs 
-- loginReguster 
-    - login.hbs  
-    - loginRegister.css 
-    - loginRegister.js      
-    - register.hbs
-- homePage 
-    - homePage.css 
-    - homePage.hbs 
-    - homePage.js              
-    - menu.hbs
-- products 
-    - addProductForm.hbs 
-    - changeProductForm.hbs
-    - product.js              
 
+## Handlebars
 
+Handlebars is a simple templating language.
+It uses a template and an input object to generate HTML or other text formats. Handlebars templates look like regular text with embedded Handlebars expressions.
+```
+<p>{{firstname}} {{lastname}}</p>
+```
+A handlebars expression is a {{, some contents, followed by a }}. When the template is executed, these expressions are replaced with values from an input object.
