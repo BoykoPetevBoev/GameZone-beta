@@ -1,10 +1,10 @@
 <div class="userInfoBack">
     <div class="userInfo center">
         {{#if admin}}
-            <a class="btn" href="#/productForm">Add new product</a>
-            <a class="btn" href="#/database">Database</a>
-            <a class="btn" href="http://localhost:9000/_utils">PouchDB</a>
-            <a class="btn" href="http://localhost:5984/_utils">CouchDB</a>
+        <a class="btn" href="#/productForm">Add new product</a>
+        <a class="btn" href="#/database">Database</a>
+        <a class="btn" href="http://localhost:9000/_utils">PouchDB</a>
+        <a class="btn" href="http://localhost:5984/_utils">CouchDB</a>
         {{else}}
 
         <div>
@@ -35,7 +35,7 @@
                 </table>
             </div>
         </div>
-        
+
         <div id="userInfo">
 
             <div class="user left">
@@ -51,7 +51,12 @@
                 <p>{{address}}</p>
             </div>
             <div id="totalPrice">
-                <h1>${{totalPrice}}</h1>
+                <div class="left sym">
+                    <h1>$</h1>
+                </div>
+                <div class="left price">
+                    <h1>{{totalPrice}}</h1>
+                </div>
             </div>
         </div>
 
