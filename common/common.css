@@ -255,3 +255,26 @@ transition:.5s ease;
 #shoppingCart button:hover {
   box-shadow: 0 0 10px 2px var(--special-color-red);
 }
+
+#totalPrice {
+  margin-top: 220px;
+  height: 75px;
+  border-bottom: solid 1px black;
+  border-top: solid 1px black;
+}
+#totalPrice h1{
+  margin: unset;
+}
+#totalPrice .sym{  
+  background-color: var(--special-color-red);
+  color: var(--secondary-color);
+  /* padding-left: 10px;
+  padding-right: 10px; */
+  height: 100%;
+}
+#totalPrice .price{
+  color: var(--special-color-red);
+  padding-left: 10px;
+  height: 100%;
+
+} 
