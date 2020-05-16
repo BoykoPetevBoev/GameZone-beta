@@ -4,13 +4,6 @@ import { putData, getData } from '../database/requesterDB.js';
 
 
 let totalPrice = 0;
-function menuDiv() {
-    // const div = document.getElementById('menuDiv')
-    // div.addEventListener("mouseover", function( event ) {
-    //     const text = document.getElementById('gameZoneHeader')
-    //     text.style.color = 'red';
-    // })
-}
 function removeItemFromCart(ctx) {
     getUserInfoFrom(ctx)
     const idUser = ctx.email
@@ -63,4 +56,4 @@ function updateUserCart(user) {
 }
 
 window.removeItemFromCart = removeItemFromCart;
-export { menuDiv, addItemToCart };
+export { addItemToCart };
