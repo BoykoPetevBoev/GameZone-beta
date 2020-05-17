@@ -1,5 +1,5 @@
 #   Thesis work
-TODO...
+![Sitemap](https://github.com/BoykoPetevBoev/GameZone/blob/master/README/Sitemap.png)
  
 ## PushNotifications 
 
