@@ -1,5 +1,10 @@
 #   Thesis work
 ![Sitemap](https://github.com/BoykoPetevBoev/GameZone/blob/master/README/Sitemap.png)
+| Page ID  | Template  | Page Name |  URL  |
+| -------- | --------- | --------- | ----- |
+|   0.0    | homePage.hbs  |    Home   | /home |
+|   1.0    | login.hbs    |    Login  | /login |
+|   2.0    | register.hbs |    Register | /register|
  
 ## PushNotifications 
 
