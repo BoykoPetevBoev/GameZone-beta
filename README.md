@@ -33,8 +33,6 @@ const applicationServerPublicKey = 'BKTY4jTJ_YSMRf4miX6GE74Z1Jg_ANPdowdcsric6mj8
 let isSubscribed = false;
 let swRegistration = null;
 
-function something() {...
-}
 function main(pushButton) {...
 }
 function urlB64ToUint8Array(base64String) {...
@@ -48,7 +46,7 @@ function subscribeUser(pushButton) {...
 function updateSubscriptionOnServer(subscription) {...
 }
 
-window.something = something;
+window.main = main;
 export { something }
 ```
 #  
