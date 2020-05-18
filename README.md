@@ -1,15 +1,20 @@
 #   Thesis work
 ![Sitemap](https://github.com/BoykoPetevBoev/GameZone/blob/master/README/Sitemap.png)
-| Page ID  | Template      | Page Name      |  URL              |
-| -------- | ------------- | -------------- | ----------------  |
-|   0.0    | homePage.hbs  |    Home        | /home             |
-|   0.1    | homePage.hbs  |    Mouse       | /home/mouse       |
-|   0.2    | homePage.hbs  |    Keyboard    | /home/keyboard    |
-|   0.3    | homePage.hbs  |    Headset     | /home/headset     |
-|   0.4    | homePage.hbs  |    Mousepad    | /home/mousepad    |
-|   0.5    | homePage.hbs  |    Accessories | /home/accessories |
-|   1.0    | login.hbs     |    Login       | /login            |
-|   2.0    | register.hbs  |    Register    | /register         |
+| Page ID  | Template        | Page Name      |  URL              |
+| -------- | --------------- | -------------- | ----------------  |
+|   0.0    | homePage.hbs    |    Home        | /home             |
+|   0.1    | homePage.hbs    |    Mouse       | /home/mouse       |
+|   0.1.1  | productPage.hbs |   Product Page | www.gamezone.com/home/mouse/:id |
+|   0.2    | homePage.hbs    |    Keyboard    | /home/keyboard    |
+|   0.2.1  | productPage.hbs |   Product Page | www.gamezone.com/home/keyboard/:id |
+|   0.3    | homePage.hbs    |    Headset     | /home/headset     |
+|   0.3.1  | productPage.hbs |   Product Page | www.gamezone.com/home/headset/:id |
+|   0.4    | homePage.hbs    |    Mousepad    | /home/mousepad    |
+|   0.4.1  | productPage.hbs |   Product Page | www.gamezone.com/home/mousepad/:id |
+|   0.5    | homePage.hbs    |    Accessories | /home/accessories |
+|   0.5.1  | productPage.hbs |   Product Page | www.gamezone.com/home/accessories/:id |
+|   1.0    | login.hbs       |    Login       | /login            |
+|   2.0    | register.hbs    |    Register    | /register         |
  
 ## PushNotifications 
 
