@@ -62,7 +62,7 @@ Live sync set. Each entry in CouchDB automatically generates an entry in PouchDB
 
 const usersDB = new PouchDB('users');
 const productsDB = new PouchDB('items');
-const remoteUsersDB = new PouchDB('http://USERNAM:PASSWORD@localhost:5984/users', { skip_setup: true });
+const remoteUsersDB = new PouchDB('http://USERNAME:PASSWORD@localhost:5984/users', { skip_setup: true });
 const remoteProductsDB = new PouchDB('http://USERNAME:PASSWORD@localhost:5984/products', { skip_setup: true });
 usersDB.sync(remoteUsersDB);
 productsDB.sync(remoteProductsDB);
