@@ -1,4 +1,4 @@
-#   Thesis work
+#   GameZone
 ![Sitemap](https://github.com/BoykoPetevBoev/GameZone/blob/master/README/Sitemap.png)
 | Page ID  | Template        | Page Name      |  URL                  |
 | -------- | --------------- | -------------- | --------------------- |
